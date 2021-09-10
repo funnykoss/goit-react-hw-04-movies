@@ -1,38 +1,39 @@
+import axios from 'axios';
 const API_KEY = '1d492e008148c42709362e98500fe1a3';
-const BASE_URL = 'https://api.themoviedb.org/3';
 
-function fetchWithErrorHandling(url = '', config = {}) {
-  fetch(url, config).then(response => {
-    if (response.ok) {
-      response.json();
-    }
-    Promise.reject(new Error('Not found'));
-  });
+export function fetchTrendingMovies(timePeriod = `week`, page = 1) {
+  return axios
+    .get
+    (`https://api.themoviedb.org/3/trending/movie/${timePeriod}?api_key=${API_KEY}&page=${page}`)
+    .then(({ data }) => data)
+    .catch(error => error);
 }
 
-export function trendingMovies(timePeriod = `week`, page = 1) {
-  return fetchWithErrorHandling(
-    `${BASE_URL}/trending/movie/${timePeriod}?api_key=${API_KEY}&page=${page}&language=en-US`,
-  );
-}
-
-export function searchMovie(query, page = 1) {
-  return fetchWithErrorHandling(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&page=${page}&include_adult=false&query=${query}&language=en-US`,
-  );
-}
-export function searchMovieById(id) {
-  return fetchWithErrorHandling(
-    `${BASE_URL}/movie/${id}?api_key=${this.API_KEY}&language=en-US`,
-  );
-}
-export function searchMovieCredits(id) {
-  return fetchWithErrorHandling(
-    `${BASE_URL}/movie/${id}/credits?api_key=${this.API_KEY}&language=en-US`,
-  );
-}
-export function searchMovieReviews(id) {
-  return fetchWithErrorHandling(
-    `${BASE_URL}/movie/${id}/reviews?api_key=${this.API_KEY}&language=en-US`,
-  );
-}
+// export function fetchSearchMovies({ searchInput = '' }) {
+//   return axios
+//     .get(
+//       `${BASE_URL}/${searchInput}/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`,
+//     )
+//     .then(({ data }) => data)
+//     .catch(error => error);
+// }
+// export function fetchMoviesById(id) {
+//   return axios
+//     .get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`)
+//     .then(({ data }) => data)
+//     .catch(error => error);
+// }
+// export function fetchMoviesByIdCredits(id) {
+//   return axios
+//     .get(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
+//     .then(({ data }) => data)
+//     .catch(error => error);
+// }
+// export function fetchMoviesByIdReviews(id) {
+//   return axios
+//     .get(
+//       `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+//     )
+//     .then(({ data }) => data)
+//     .catch(error => error);
+// }
