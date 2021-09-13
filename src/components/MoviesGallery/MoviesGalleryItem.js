@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './MoviesGallery.modules.css';
+import s from './MoviesGallery.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function MoviesGalleryItem({ movie }) {

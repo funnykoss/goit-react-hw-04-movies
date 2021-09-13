@@ -1,6 +1,6 @@
 import React from 'react';
 import MoviesGalleryItem from './MoviesGalleryItem';
-import s from './MoviesGallery.modules.css';
+import s from '././MoviesGallery.module.css';
 // import PropTypes from 'prop-types';
 
 export default function MoviesGallery({ movies }) {
