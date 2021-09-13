@@ -8,7 +8,9 @@ export default function Navigation() {
         Home
       </NavLink>
 
-      <NavLink to="/">Movies</NavLink>
+      <NavLink to="/movies" className={s.link}>
+        Movies
+      </NavLink>
     </nav>
   );
 }
