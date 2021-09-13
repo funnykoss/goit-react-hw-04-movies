@@ -7,10 +7,10 @@ export default function Spinner() {
     <div className={s.loaderContainer}>
       <Loader
         className="Loader"
-        type="Plane"
-        color="#5F5FF6"
-        height={100}
-        width={100}
+        type="ThreeDots"
+        color="blue"
+        height={80}
+        width={80}
       />
     </div>
   );

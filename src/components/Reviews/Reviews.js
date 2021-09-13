@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as fetchAPI from '../../services/movieApi';
 import s from './Reviews.module.css';
+import PropTypes from 'prop-types';
 
 export default function Reviews({ movieId }) {
   const [{ results }, setReviews] = useState([]);
@@ -28,3 +29,6 @@ export default function Reviews({ movieId }) {
     </>
   );
 }
+Reviews.prototype = {
+  movieId: PropTypes.object.isRequired,
+};

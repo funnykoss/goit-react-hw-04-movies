@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import s from './Searchbar.module.css';
+import PropTypes from 'prop-types';
 
 export default function SearchMovies({ onSubmit }) {
   const [query, setQuery] = useState('');
@@ -37,3 +38,6 @@ export default function SearchMovies({ onSubmit }) {
     </header>
   );
 }
+SearchMovies.prototype = {
+  onSubmit: PropTypes.func.isRequired,
+};

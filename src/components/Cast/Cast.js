@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as fetchAPI from '../../services/movieApi';
 import s from './Cast.module.css';
+import PropTypes from 'prop-types';
 
 import photo from '../../img/no_foto.jpg';
 
@@ -36,4 +37,6 @@ export default function Cast({ movieId }) {
   );
 }
 
-//
+Cast.prototype = {
+  movieId: PropTypes.object.isRequired,
+};

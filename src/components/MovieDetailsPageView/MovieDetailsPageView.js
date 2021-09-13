@@ -1,4 +1,5 @@
 import s from './MovieDetailsPageView.module.css';
+import PropTypes from 'prop-types';
 
 export default function MovieDetailsPageView({ movie }) {
   return (
@@ -9,17 +10,17 @@ export default function MovieDetailsPageView({ movie }) {
         width="300"
         className={s.image}
       />
-      <div>
+      <div className={s.movieInfo}>
         <h2 className={s.movieTitle}>{movie.original_title}</h2>
-        <p className={s.movieInfo}>
+        <p className={s.infoItem}>
           User score:
           <span className={s.infoSum}>{movie.vote_average}</span>
         </p>
-        <p className={s.movieInfo}>
+        <p className={s.infoItem}>
           Overview:
           <span className={s.infoSum}>{movie.overview}</span>
         </p>
-        <p className={s.movieInfo}>
+        <p className={s.infoItem}>
           Genres:
           <span className={s.infoSum}>
             {movie.genres.map(genre => genre.name).join(' / ')}
@@ -29,3 +30,6 @@ export default function MovieDetailsPageView({ movie }) {
     </div>
   );
 }
+MovieDetailsPageView.prototype = {
+  movies: PropTypes.object.isRequired,
+};
