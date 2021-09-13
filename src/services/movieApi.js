@@ -21,23 +21,23 @@ export function fetchSearchMovies(searchInput) {
 }
 export function fetchMoviesById(movieId) {
   return axios
-    .get(`${BASE_URL}movie/${movieId}?api_key=${this.API_KEY}&language=en-US`)
+    .get(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
     .then(({ data }) => data)
     .catch(error => error);
 }
-// export function fetchMoviesByIdCredits(movieId) {
-//   return axios
-//     .get(
-//       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
-//     )
-//     .then(({ data }) => data)
-//     .catch(error => error);
-// }
-// export function fetchMoviesByIdReviews(movieId) {
-//   return axios
-//     .get(
-//       `https://api.themoviedb.org/3/trending/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
-//     )
-//     .then(({ data }) => data)
-//     .catch(error => error);
-// }
+export function fetchCast(movieId) {
+  return axios
+    .get(
+      `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`,
+    )
+    .then(({ data }) => data)
+    .catch(error => error);
+}
+export function fetchMoviesByIdReviews(movieId) {
+  return axios
+    .get(
+      `${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+    )
+    .then(({ data }) => data)
+    .catch(error => error);
+}
