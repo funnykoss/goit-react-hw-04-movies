@@ -4,6 +4,8 @@ import { lazy, Suspense } from 'react';
 import Loader from 'react-loader-spinner';
 import AppBar from './components/AppBar/AppBar';
 import Container from './components/Container/Container';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import HomePageView from './views/HomePageView';
 // import MoviesPageSearch from './views/MoviesPageSearch/MoviesPageSearch';
@@ -41,6 +43,14 @@ export default function App() {
           </Route>
         </Switch>
       </Suspense>
+      <ToastContainer
+        autoClose={3000}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Container>
   );
 }

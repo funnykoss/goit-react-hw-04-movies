@@ -28,7 +28,7 @@ export default function MoviesPageSearch() {
   const getMovies = () => {
     fetchAPI.fetchSearchMovies(query).then(({ results }) => {
       if (results.length === 0) {
-        toast.error('There are no results. Try another query');
+        toast.error(`There are no results. Try another ${query}`);
         return;
       }
       setMovies(results);

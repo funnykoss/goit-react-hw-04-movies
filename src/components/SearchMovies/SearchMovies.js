@@ -12,7 +12,7 @@ export default function SearchMovies({ onSubmit }) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (query.trim === '') {
+    if (query.trim() === '') {
       toast.error('Enter your query');
       return;
     }
